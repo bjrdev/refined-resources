@@ -2,9 +2,9 @@
 
 Welcome to **Bonjour.**, a open-source repository dedicated to providing optimized, and enriched scripts for the Roblox community.
 
-![License](https://img.shields.io/github/license/bonjourdev/website?color=00BFFF&style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/bonjourdev/website?color=00E5FF&style=for-the-badge)
-![Discord](https://img.shields.io/badge/Discord-Join%20Us-5865F2?style=for-the-badge&logo=discord)
+[![License](https://img.shields.io/badge/License-CACL-5865F2?style=for-the-badge&logo=github)](https://github.com/bonjourdev/website/blob/main/LICENSE.md)
+[![Stars](https://img.shields.io/github/stars/bonjourdev/website?color=00E5FF&style=for-the-badge)](https://github.com/bonjourdev/website/stargazers)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Us-5865F2?style=for-the-badge&logo=discord)](https://dsc.gg/bjr)
 
 ---
 

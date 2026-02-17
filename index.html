@@ -3,497 +3,509 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bonjour.</title>
+    <title>Refined Resources.</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
     <script>
         tailwind.config = {
-            darkMode: 'media', 
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        roblox: '#00BFFF',
-                        accent: '#00E5FF',
-                        dark: '#0B0F1A',
-                        light: '#F8FAFC',
-                        cardDark: '#161B2E',
-                        cardLight: '#FFFFFF',
+                        dark: '#0a0a0a',
+                        cardDark: '#121212',
+                        accent: '#ffffff',
+                        zinc: {
+                            400: '#a1a1aa',
+                            500: '#71717a',
+                            800: '#27272a',
+                            900: '#18181b',
+                        }
                     },
                     animation: {
-                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 3s ease-in-out infinite',
-                        'twinkle': 'twinkle 3s ease-in-out infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     }
                 }
             }
         }
     </script>
     <style>
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #00BFFF, #00E5FF); border-radius: 4px; }
-        
-        .glass-nav { 
-            background: rgba(248, 250, 252, 0.8); 
-            backdrop-filter: blur(12px); 
-        }
-        @media (prefers-color-scheme: dark) {
-            .glass-nav { background: rgba(11, 15, 26, 0.8); }
+        html {
+            font-size: 80%;
         }
 
-        @keyframes smoothZoomFade {
-            0% { transform: scale(0.8); opacity: 0; filter: blur(10px); }
-            100% { transform: scale(1); opacity: 1; filter: blur(0); }
-        }
-
-        .reveal-anim {
-            animation: smoothZoomFade 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-
-        .text-gradient {
-            background: linear-gradient(135deg, #0080FF 0%, #00FFFF 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% 200%;
-            animation: gradientMove 4s ease infinite;
-        }
-
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .btn-gradient {
-            background: linear-gradient(135deg, #0080FF 0%, #00FFFF 100%);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .asset-card {
-            transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
-            transform-style: preserve-3d;
-            will-change: transform;
-        }
-        
-        .card-violet-glow:hover {
-            box-shadow: 0 25px 50px -12px rgba(0, 229, 255, 0.15);
-            border-color: rgba(0, 229, 255, 0.4);
-        }
-
-        .bg-blob { filter: blur(80px); opacity: 0.15; z-index: -1; }
-
-        #cursor-glow {
-            width: 800px; height: 800px;
-            background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, rgba(0,0,0,0) 70%);
-            position: fixed; pointer-events: none; z-index: 0;
-            transform: translate(-50%, -50%); border-radius: 50%;
-        }
-
-        .particle { position: fixed; background: currentColor; border-radius: 2px; pointer-events: none; z-index: -1; }
-        body.loading { overflow: hidden; }
-        
-        /* Modal Styles */
-        #assets-modal {
-            backdrop-filter: blur(8px);
-        }
-        .filter-btn.active {
-            background: #00E5FF;
-            color: #0B0F1A;
-            border-color: #00E5FF;
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ffffff; }
+        body { background-color: #0a0a0a; color: #a1a1aa; font-family: 'Inter', sans-serif; }
+        .glass-nav { background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .text-gradient { background: linear-gradient(to bottom, #ffffff 0%, #a1a1aa 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .btn-primary { background: #ffffff; color: #0a0a0a; transition: all 0.3s ease; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
+        .asset-card { background: #121212; border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
+        .asset-card:hover { border-color: rgba(255, 255, 255, 0.2); background: #161616; }
+        #canvas-bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+        .reveal-anim { animation: reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes reveal { from { opacity: 0; transform: translateY(20px); filter: blur(10px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+        .filter-btn.active { background: #ffffff; color: #0a0a0a; border-color: #ffffff; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .loading-dot { width: 12px; height: 12px; background: #71717a; border-radius: 2px; animation: bounce-advanced 1.2s infinite cubic-bezier(0.45, 0, 0.55, 1); }
+        @keyframes bounce-advanced { 0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; filter: blur(1px); } 50% { transform: translateY(-25px) scale(1.2) rotate(180deg); opacity: 1; filter: blur(0px); background: #ffffff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); } }
+        .news-slide { display: none; }
+        .news-slide.active { display: block; animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
     </style>
 </head>
-<body class="loading bg-light dark:bg-dark text-slate-600 dark:text-slate-300 font-sans selection:bg-accent selection:text-white overflow-x-hidden transition-colors duration-500">
-
-    <div id="loader" class="fixed inset-0 z-[100] flex items-center justify-center bg-white dark:bg-[#000000] transition-opacity duration-1000">
-        <img id="loader-text" src="https://i.imgur.com/xdSIeZo.png" alt="Bonjour Logo" class="h-20 md:h-32 w-auto opacity-0 object-contain">
+<body class="loading overflow-x-hidden">
+    <canvas id="canvas-bg"></canvas>
+    <div id="loader" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0a0a0a] transition-opacity duration-1000">
+        <img id="loader-logo" src="https://i.imgur.com/8AhXaTL.png" alt="Logo" class="w-16 h-16 rounded-xl mb-8 opacity-0">
+        <div class="flex gap-2">
+            <div class="loading-dot" style="animation-delay: 0s"></div>
+            <div class="loading-dot" style="animation-delay: 0.2s"></div>
+            <div class="loading-dot" style="animation-delay: 0.4s"></div>
+        </div>
     </div>
-
-    <div id="cursor-glow"></div>
-    <div id="particles-container"></div>
-
-    <nav class="fixed w-full z-50 glass-nav border-b border-black/5 dark:border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
                 <div class="flex items-center">
-                    <a href="#">
-                        <img src="https://i.imgur.com/xdSIeZo.png" alt="Bonjour Logo" class="h-6 md:h-8 w-auto object-contain hover:opacity-80 transition-opacity">
+                    <a href="#" class="flex items-center gap-3 group">
+                        <img src="https://i.imgur.com/9YEO4qC.png" alt="Logo" class="h-6 w-auto transition-transform group-hover:scale-110">
                     </a>
                 </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="hover:text-accent transition text-sm font-medium">Home</a>
-                    <a href="#assets" class="hover:text-accent transition text-sm font-medium">Assets</a>
-                    <a href="#about" class="hover:text-accent transition text-sm font-medium">About</a>
-                    <a href="https://dsc.gg/bjr" target="_blank" class="bg-[#5865F2] hover:shadow-[0_0_20px_rgba(88,101,242,0.5)] text-white px-5 py-2 rounded-full text-sm font-bold transition-all hover:-translate-y-1">
-                        <i class="fa-brands fa-discord mr-2"></i>Discord
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="#home" class="text-zinc-400 hover:text-white transition text-sm font-medium">Home</a>
+                    <a href="#news" class="text-zinc-400 hover:text-white transition text-sm font-medium">News</a>
+                    <a href="#assets" class="text-zinc-400 hover:text-white transition text-sm font-medium">Assets</a>
+                    <a href="#games" class="text-zinc-400 hover:text-white transition text-sm font-medium">Games</a>
+                    <a href="https://dsc.gg/bjr" target="_blank" class="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-2.5 rounded-full text-sm font-bold transition-all">
+                        <i class="fa-brands fa-discord mr-2"></i>Community
                     </a>
                 </div>
             </div>
         </div>
     </nav>
-
     <section id="home" class="relative pt-32 pb-20 lg:pt-52 lg:pb-32 flex items-center justify-center min-h-screen">
-        <div class="absolute top-0 w-full h-full overflow-hidden pointer-events-none">
-            <div id="blob-1" class="absolute top-1/4 left-1/4 w-96 h-96 bg-roblox bg-blob animate-pulse-slow"></div>
-            <div id="blob-2" class="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-accent bg-blob animate-pulse-slow" style="animation-delay: 2s"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 text-center z-10" data-aos="zoom-out-up">
-            <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-accent/30 bg-accent/5 mb-8">
-                <span class="text-xs font-bold text-accent uppercase tracking-widest flex items-center gap-2">
-                    <span class="w-2 h-2 bg-accent rounded-full animate-ping"></span>
-                    <span>Roblox Open Source Project</span>
+        <div class="max-w-4xl mx-auto px-4 text-center z-10" data-aos="fade-up">
+            <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-8">
+                <span class="text-[10px] font-bold text-white uppercase tracking-[0.2em] flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse"></span>
+                    GAME RELEASING SOON
                 </span>
             </div>
-            <h1 class="text-6xl md:text-8xl font-black text-slate-900 dark:text-white mb-6 tracking-tight">
-                Bonjour<br>
-                <span class="text-gradient">Resources.</span>
-            </h1>
-            <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-500 dark:text-slate-400 mb-12 leading-relaxed">
-                Empowering the Roblox community with <span class="text-slate-900 dark:text-white font-semibold">enriched scripts</span> for free. High performance, clean code, and zero cost.
+            <div class="mb-8 flex justify-center" data-aos="fade-up">
+                <img src="https://i.imgur.com/P5lvuJn.png" alt="Refined Resources" class="w-full max-w-[512px] h-auto object-contain pointer-events-none select-none" style="max-height: 198px;">
+            </div>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-zinc-500 mb-12 leading-relaxed">
+                The #1 free platform for Roblox developers.
             </p>
-            <div class="flex flex-col sm:flex-row gap-5 justify-center">
-                <a href="#assets" class="btn-gradient text-white font-bold py-4 px-10 rounded-xl shadow-xl">Explore Assets</a>
-                <a href="https://dsc.gg/bjr" target="_blank" class="border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-slate-900 dark:text-white font-bold py-4 px-10 rounded-xl transition backdrop-blur-sm">Join Community</a>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#assets" class="btn-primary py-4 px-10 rounded-xl font-bold text-sm">Explore Library</a>
+                <a href="https://dsc.gg/bjr" target="_blank" class="bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-800 py-4 px-10 rounded-xl font-bold text-sm transition">Join Us</a>
             </div>
         </div>
     </section>
 
-    <section id="assets" class="py-24 relative bg-slate-500/5">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-down">
-                <h2 class="text-4xl font-bold text-slate-900 dark:text-white mb-4">Available Assets</h2>
-                <div class="h-1 w-20 bg-accent mx-auto rounded-full"></div>
+    <section id="news" class="py-32 relative border-t border-white/5">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-white mb-2">Latest Updates</h2>
+                <p class="text-zinc-500">Stay tuned with our development progress.</p>
             </div>
-            
-            <div id="assets-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            </div>
-
-            <div class="flex justify-center" data-aos="fade-up">
-                <button onclick="openAssetModal()" class="group relative px-8 py-3 rounded-xl bg-cardLight dark:bg-cardDark border border-black/10 dark:border-white/10 text-slate-900 dark:text-white font-bold hover:border-accent transition-all duration-300">
-                    <span class="relative z-10 flex items-center gap-2">
-                        View All Assets <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                    </span>
-                    <div class="absolute inset-0 rounded-xl bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="relative group" data-aos="zoom-in">
+                <div id="news-container">
+                    <div class="news-slide active">
+                        <div class="rounded-3xl overflow-hidden border border-white/10 bg-zinc-900/50">
+                            <img src="https://i.imgur.com/z2MaMuc.png" class="w-full h-80 object-cover opacity-80" alt="News 1">
+                            <div class="p-8">
+                                <span class="text-[10px] font-black text-white bg-white/10 px-3 py-1 rounded-md uppercase tracking-widest">21th February</span>
+                                <h3 class="text-2xl font-bold text-white mt-4 mb-2">New Brand, New Starts</h3>
+                                <p class="text-zinc-400 leading-relaxed">Here is our new identity: Refined Resources. We hope to be more professional than ever.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="news-container">
+                    <div class="news-slide">
+                        <div class="rounded-3xl overflow-hidden border border-white/10 bg-zinc-900/50">
+                            <img src="https://tr.rbxcdn.com/180DAY-921704875c559d700e6195e8f716471a/768/432/Image/Webp/noFilter" class="w-full h-80 object-cover opacity-80" alt="News 2">
+                            <div class="p-8">
+                                <span class="text-[10px] font-black text-white bg-white/10 px-3 py-1 rounded-md uppercase tracking-widest">21th February</span>
+                                <h3 class="text-2xl font-bold text-white mt-4 mb-2">Our new Game</h3>
+                                <p class="text-zinc-400 leading-relaxed">We are still developing this game, and we plan to release it before summer 2026. More development updates coming soon.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="news-container">
+                    <div class="news-slide">
+                        <div class="rounded-3xl overflow-hidden border border-white/10 bg-zinc-900/50">
+                            <img src="https://t6.rbxcdn.com/180DAY-3de571ed1175636497776c44426b9765" class="w-full h-80 object-cover opacity-80" alt="News 3">
+                            <div class="p-8">
+                                <span class="text-[10px] font-black text-white bg-white/10 px-3 py-1 rounded-md uppercase tracking-widest">21th February</span>
+                                <h3 class="text-2xl font-bold text-white mt-4 mb-2">BJDR 4th Release</h3>
+                                <p class="text-zinc-400 leading-relaxed">BJDR 3.0.0 is now out, with new settings and themes!</p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <button onclick="prevNews()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button onclick="nextNews()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
+                    <i class="fa-solid fa-chevron-right"></i>
                 </button>
             </div>
         </div>
     </section>
 
-    <div id="assets-modal" class="fixed inset-0 z-[60] bg-dark/80 hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-        <div class="bg-light dark:bg-[#0F121D] w-full max-w-6xl h-[90vh] rounded-2xl border border-white/10 shadow-2xl flex flex-col overflow-hidden transform scale-95 transition-transform duration-300" id="modal-content">
-            
-            <div class="p-6 border-b border-black/5 dark:border-white/5 flex justify-between items-center bg-white/50 dark:bg-black/20 backdrop-blur-md">
+    <section id="assets" class="py-32 relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
+                <div class="text-left">
+                    <h2 class="text-3xl font-bold text-white mb-2">Available Assets</h2>
+                    <p class="text-zinc-500">Curated collection of open-source tools.</p>
+                </div>
+                <button onclick="openAssetModal()" class="text-sm font-bold text-white bg-white/5 border border-white/10 px-6 py-3 rounded-xl hover:bg-white/10 transition">
+                    View Library <i class="fa-solid fa-chevron-right ml-2 text-[10px]"></i>
+                </button>
+            </div>
+            <div id="assets-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12"></div>
+        </div>
+    </section>
+
+    <section id="games" class="py-32 relative border-t border-white/5 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
+                <div class="text-left">
+                    <h2 class="text-3xl font-bold text-white mb-2">Roblox Games</h2>
+                    <p class="text-zinc-500">Discover our immersive experiences.</p>
+                </div>
+                <div class="flex gap-2 bg-white/5 p-1 rounded-xl border border-white/10">
+                    <button class="game-filter active px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-white rounded-lg transition-all" data-filter="All">All</button>
+                    <button class="game-filter px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-zinc-500 rounded-lg transition-all" data-filter="Simulator">Simulator</button>
+                    <button class="game-filter px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-zinc-500 rounded-lg transition-all" data-filter="Tycoon">Tycoon</button>
+                </div>
+            </div>
+            <div id="games-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+        </div>
+    </section>
+
+    <div id="assets-modal" class="fixed inset-0 z-[60] bg-black/90 hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-[#0f0f0f] w-full max-w-6xl h-[85vh] rounded-3xl border border-white/10 shadow-2xl flex flex-col overflow-hidden transform scale-95 transition-transform duration-300" id="modal-content">
+            <div class="p-8 border-b border-white/5 flex justify-between items-center bg-zinc-900/50">
                 <div>
-                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white">All Resources</h3>
-                    <p class="text-xs text-slate-500 font-mono">LIBRARY_V2.0.lua</p>
+                    <h3 class="text-2xl font-bold text-white">Resource Database</h3>
+                    <p class="text-[10px] text-zinc-500 font-mono tracking-widest mt-1">STATUS: OPERATIONAL</p>
                 </div>
-                <button onclick="closeAssetModal()" class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 hover:bg-red-500/20 hover:text-red-500 flex items-center justify-center transition-colors">
-                    <i class="fa-solid fa-xmark text-lg"></i>
+                <button onclick="closeAssetModal()" class="w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/10 flex items-center justify-center transition-all group">
+                    <i class="fa-solid fa-xmark text-zinc-400 group-hover:text-white transition-colors"></i>
                 </button>
             </div>
-
-            <div class="p-6 border-b border-black/5 dark:border-white/5 flex flex-col gap-4 bg-slate-50/50 dark:bg-[#161B2E]/50">
-                <div class="w-full relative">
-                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 z-10"></i>
-                    <input type="text" id="asset-search" placeholder="Search assets..." class="w-full pl-10 pr-4 py-3 bg-white dark:bg-black/20 border border-black/10 dark:border-white/10 rounded-xl text-sm focus:outline-none focus:border-accent transition-colors text-slate-700 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500">
+            <div class="p-8 border-b border-white/5 flex flex-col gap-6">
+                <div class="relative group">
+                    <i class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-zinc-600 group-focus-within:text-white transition-colors"></i>
+                    <input type="text" id="asset-search" placeholder="Search resources..." class="w-full pl-14 pr-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-sm focus:outline-none focus:border-white/30 transition-all text-white placeholder:text-zinc-600">
                 </div>
-
-                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div class="flex flex-wrap gap-2 justify-center md:justify-start" id="tag-filters">
-                        <button class="filter-btn active px-4 py-1.5 rounded-lg text-sm font-medium border border-transparent hover:bg-black/5 dark:hover:bg-white/5 transition-colors" data-filter="All">All</button>
-                        <button class="filter-btn active px-4 py-1.5 rounded-lg text-sm font-medium border border-transparent hover:bg-black/5 dark:hover:bg-white/5 transition-colors" data-filter="UI">UI</button>
-                        <button class="filter-btn active px-4 py-1.5 rounded-lg text-sm font-medium border border-transparent hover:bg-black/5 dark:hover:bg-white/5 transition-colors" data-filter="System">System</button>
-                        <button class="filter-btn active px-4 py-1.5 rounded-lg text-sm font-medium border border-transparent hover:bg-black/5 dark:hover:bg-white/5 transition-colors" data-filter="Security">Security</button>
-                        <button class="filter-btn active px-4 py-1.5 rounded-lg text-sm font-medium border border-transparent hover:bg-black/5 dark:hover:bg-white/5 transition-colors" data-filter="Avatar">Avatar</button>
-                        <button class="filter-btn active px-4 py-1.5 rounded-lg text-sm font-medium border border-transparent hover:bg-black/5 dark:hover:bg-white/5 transition-colors" data-filter="Economy">Economy</button>
-                    </div>
-
-                    <div class="flex items-center gap-3">
-                        <span class="text-xs font-bold text-slate-400 uppercase">Sort by:</span>
-                        <select id="sort-select" onchange="renderModalAssets()" class="bg-transparent text-sm font-semibold text-slate-700 dark:text-slate-300 border border-black/10 dark:border-white/10 rounded-lg px-3 py-1.5 focus:outline-none focus:border-accent">
-                            <option value="default">Last Updated (Newest)</option>
-                            <option value="version-old">Last Updated (Oldest)</option>
-                            <option value="az">Name (A-Z)</option>
-                        </select>
-                    </div>
+                <div class="flex flex-wrap gap-3" id="tag-filters">
+                    <button class="filter-btn active px-5 py-2 rounded-xl text-xs font-bold border border-white/10 hover:border-white/30 transition-all" data-filter="All">All</button>
+                    <button class="filter-btn px-5 py-2 rounded-xl text-xs font-bold border border-white/10 hover:border-white/30 transition-all" data-filter="UI">UI</button>
+                    <button class="filter-btn px-5 py-2 rounded-xl text-xs font-bold border border-white/10 hover:border-white/30 transition-all" data-filter="System">System</button>
+                    <button class="filter-btn px-5 py-2 rounded-xl text-xs font-bold border border-white/10 hover:border-white/30 transition-all" data-filter="Security">Security</button>
+                    <button class="filter-btn px-5 py-2 rounded-xl text-xs font-bold border border-white/10 hover:border-white/30 transition-all" data-filter="Avatar">Avatar</button> 
                 </div>
             </div>
-
-            <div class="flex-1 overflow-y-auto p-6 bg-slate-100/50 dark:bg-black/20 custom-scrollbar">
-                <div id="modal-grid" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    </div>
+            <div class="flex-1 overflow-y-auto p-8 custom-scrollbar bg-black/20">
+                <div id="modal-grid" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
             </div>
         </div>
     </div>
 
-    <section id="about" class="py-24 border-t border-black/5 dark:border-white/5 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="order-2 lg:order-1" data-aos="fade-right">
-                    <div class="relative group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-roblox to-accent rounded-xl blur opacity-25 group-hover:opacity-60 transition duration-1000"></div>
-                        <div class="relative bg-white dark:bg-[#0F121D] rounded-xl border border-black/10 dark:border-white/10 shadow-2xl overflow-hidden font-mono text-xs md:text-sm">
-                            <div class="flex items-center px-4 py-3 bg-black/5 dark:bg-white/5 border-b border-black/5 dark:border-white/5">
-                                <div class="flex space-x-2">
-                                    <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
-                                    <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                                    <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+    <section id="about" class="py-32 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-24 items-center">
+                <div data-aos="fade-right">
+                    <div class="relative p-1 bg-gradient-to-b from-white/10 to-transparent rounded-3xl">
+                        <div class="bg-[#0f0f0f] rounded-[22px] border border-white/5 overflow-hidden shadow-2xl">
+                            <div class="flex items-center px-6 py-4 border-b border-white/5 bg-white/5">
+                                <div class="flex space-x-1.5">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-zinc-800"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-zinc-800"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-zinc-800"></div>
                                 </div>
-                                <span class="ml-4 text-slate-400 dark:text-slate-500 text-xs tracking-widest uppercase">about_me.lua</span>
+                                <span class="ml-4 text-zinc-600 font-mono text-[10px] uppercase tracking-widest">system_core.lua</span>
                             </div>
-                            <div class="p-8">
-                                <p><span class="text-accent">local</span> Developer = <span class="text-emerald-500 dark:text-emerald-400">"Bonjour"</span></p>
-                                <p><span class="text-accent">local</span> Community = <span class="text-emerald-500 dark:text-emerald-400">"Roblox Studio"</span></p>
-                                <p class="mt-4 text-slate-400 dark:text-slate-600">-- Main Loop</p>
-                                <p><span class="text-accent">while</span> task.wait() <span class="text-accent">do</span></p>
-                                <p class="ml-4">HelpDevs(<span class="text-roblox">"Free Scripts"</span>)</p>
-                                <p class="ml-4">OptimizeCode(<span class="text-roblox">true</span>)</p>
-                                <p><span class="text-accent">end</span></p>
+                            <div class="p-10 font-mono text-sm leading-relaxed">
+                                <p><span class="text-zinc-500">01</span> <span class="text-white">local</span> Project = <span class="text-zinc-400">"Refined Resources."</span></p>
+                                <p><span class="text-zinc-500">02</span> <span class="text-white">local</span> Status = <span class="text-white">true</span></p>
+                                <p><span class="text-zinc-500">03</span> </p>
+                                <p><span class="text-zinc-500">04</span> <span class="text-zinc-600">-- Initialize API</span></p>
+                                <p><span class="text-zinc-500">05</span> <span class="text-white">function</span> <span class="text-white">Deploy</span>()</p>
+                                <p><span class="text-zinc-500">06</span>   <span class="text-white">print</span>(<span class="text-zinc-400">"Assets Ready"</span>)</p>
+                                <p><span class="text-zinc-500">07</span> <span class="text-white">end</span></p>
+                                <p><span class="text-zinc-500">08</span> </p>
+                                <p><span class="text-zinc-500">09</span> <span class="text-white">Deploy</span>()</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="order-1 lg:order-2" data-aos="fade-left">
-                    <h2 class="text-4xl font-black text-slate-900 dark:text-white mb-6 leading-tight">Everything is <br><span class="text-gradient">Open Source.</span></h2>
-                    <p class="text-slate-500 dark:text-slate-400 mb-8 text-lg">
-                        Bonjour. is not just a repository, it's a commitment to quality. No robux needed, no gatekeeping. Just tools to help you build the next front-page game.
+                <div data-aos="fade-left">
+                    <h2 class="text-4xl font-bold text-white mb-6 leading-tight">Professional standards,<br><span class="text-zinc-500">community driven.</span></h2>
+                    <p class="text-zinc-500 mb-10 text-lg leading-relaxed">
+                        We believe in a future where high-quality game development tools are accessible to everyone. All our projects are built with performance and security as top priorities.
                     </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4 text-slate-900 dark:text-white font-semibold group cursor-default">
-                            <div class="w-6 h-6 rounded bg-accent/20 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white group-hover:scale-110 transition-all"><i class="fa-solid fa-check text-[10px]"></i></div>
-                            <span>Direct Downloads</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
+                            <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white mb-4"><i class="fa-solid fa-bolt-lightning text-xs"></i></div>
+                            <h4 class="text-white font-bold mb-1 text-sm">Fast Execution</h4>
+                            <p class="text-zinc-500 text-xs">Optimized for low-end devices.</p>
                         </div>
-                        <div class="flex items-center gap-4 text-slate-900 dark:text-white font-semibold group cursor-default">
-                            <div class="w-6 h-6 rounded bg-accent/20 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white group-hover:scale-110 transition-all"><i class="fa-solid fa-check text-[10px]"></i></div>
-                            <span>No Viruses / Clean Code</span>
-                        </div>
-                        <div class="flex items-center gap-4 text-slate-900 dark:text-white font-semibold group cursor-default">
-                            <div class="w-6 h-6 rounded bg-accent/20 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white group-hover:scale-110 transition-all"><i class="fa-solid fa-check text-[10px]"></i></div>
-                            <span>Optimized for High Latency</span>
+                        <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
+                            <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white mb-4"><i class="fa-solid fa-code text-xs"></i></div>
+                            <h4 class="text-white font-bold mb-1 text-sm">Clean Source</h4>
+                            <p class="text-zinc-500 text-xs">Commented and easy to read.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <footer class="py-12 border-t border-black/5 dark:border-white/5 bg-slate-100 dark:bg-[#080B14]">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div>
-                <img src="https://i.imgur.com/xdSIeZo.png" alt="Bonjour Logo" class="h-8 w-auto object-contain mb-2 hover:opacity-80 transition-opacity">
-                <p class="text-slate-500 dark:text-slate-600 text-[10px] mt-1 font-mono uppercase tracking-widest">©2025 Bonjour. All rights reserved</p>
+    <footer class="py-20 border-t border-white/5 bg-[#080808]">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="text-center md:text-left">
+                <img src="https://i.imgur.com/cqgTiJm.png" alt="Logo" class="h-16 w-auto">
             </div>
-            <div class="flex items-center space-x-6">
-                <a href="https://github.com/bonjourdev" target="_blank" class="text-slate-400 hover:text-[#5FED83] transition text-xl"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.youtube.com/@offbonjour" target="_blank" class="text-slate-400 hover:text-[#FF0033] transition text-xl"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://dsc.gg/bjr" target="_blank" class="text-slate-400 hover:text-[#5865F2] transition text-xl"><i class="fa-brands fa-discord"></i></a>
+            <div class="flex items-center space-x-8">
+                <a href="https://github.com/bjrdev/refined-resources" class="text-zinc-500 hover:text-white transition-all text-xl"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.youtube.com/@bonjourdev" class="text-zinc-500 hover:text-white transition-all text-xl"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://dsc.gg/bjr" class="text-zinc-500 hover:text-white transition-all text-xl"><i class="fa-brands fa-discord"></i></a>
             </div>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        //-----------------------------------------------------DATA-----------------------------------------------------\\
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
+        let dots = [];
         
-        const assetIcons = {
-            "BJDR": "fa-bullhorn", "BluredMenu": "fa-window-restore", "ChatToDiscord": "fa-brands fa-discord", 
-            "Loading Screen": "fa-spinner", "Realistic Head-Camera": "fa-video", "Topbar Donation": "fa-circle-dollar-to-slot", 
-            "VisualFPS": "fa-gauge-high", "Whitelist System": "fa-shield-halved"
-        };
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            dots = [];
+            for(let i=0; i<80; i++) {
+                dots.push({ 
+                    x: Math.random() * canvas.width, 
+                    y: Math.random() * canvas.height, 
+                    size: Math.random() * 2, 
+                    speed: Math.random() * 0.5 + 0.1 
+                });
+            }
+        }
+        
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+            dots.forEach(dot => {
+                ctx.beginPath(); ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI * 2); ctx.fill();
+                dot.y -= dot.speed; if(dot.y < 0) dot.y = canvas.height;
+            });
+            requestAnimationFrame(draw);
+        }
+        window.addEventListener('resize', initCanvas);
+        initCanvas();
+        draw();
+
+        let newsIndex = 0;
+        function showNews(index) {
+            const slides = document.querySelectorAll('.news-slide');
+            slides.forEach(s => s.classList.remove('active'));
+            if (index >= slides.length) newsIndex = 0;
+            if (index < 0) newsIndex = slides.length - 1;
+            slides[newsIndex].classList.add('active');
+        }
+        function nextNews() { newsIndex++; showNews(newsIndex); }
+        function prevNews() { newsIndex--; showNews(newsIndex); }
 
         const assetsData = [
-            { name: "BluredMenu", desc: "Roblox menu with blur effects.", tags: ["UI"], version: "1.0.1" },
-            { name: "ChatToDiscord", desc: "Relay game chat to Discord.", tags: ["System"], version: "1.0.1" },
-            { name: "Topbar Donation", desc: "Easy donation buttons.", tags: ["UI", "Economy"], version: "1.0.1" },
-            { name: "VisualFPS", desc: "Clean performance HUD.", tags: ["UI", "System"], version: "1.0.1" },
-            { name: "BJDR", desc: "Advanced global announcement.", tags: ["System", "UI"], version: "2.0.1" },
-            { name: "Loading Screen", desc: "Smooth introduction for players.", tags: ["UI"], version: "1.0.1" },
-            { name: "Whitelist System", desc: "Secure access control.", tags: ["Security", "System"], version: "1.0.1" },
-            { name: "Realistic Head-Camera", desc: "Immersive avatar experience.", tags: ["System", "Avatar"], version: "1.0.1" },
+            { name: "BluredMenu", desc: "Minimalist Roblox menu with high-end blur effects.", tags: ["UI"], version: "1.0.1" },
+            { name: "ChatToDiscord", desc: "Seamless relay of game chat to secure Discord channels.", tags: ["System"], version: "1.0.1" },
+            { name: "Topbar Donation", desc: "Non-intrusive donation UI for monetization.", tags: ["UI", "Economy"], version: "1.0.1" },
+            { name: "VisualFPS", desc: "Real-time performance metrics for professional debugging.", tags: ["UI", "System"], version: "1.0.1" },
+            { name: "BJDR", desc: "Advanced global announcement and notification system.", tags: ["System"], version: "2.0.1" },
+            { name: "Loading Screen", desc: "Cinematic intro experience for game entry.", tags: ["UI"], version: "1.0.1" },
+            { name: "Whitelist System", desc: "Encrypted access control for restricted areas.", tags: ["Security", "System"], version: "1.0.1" },
+            { name: "Realistic Head-Camera", desc: "First-person immersion with natural head sway.", tags: ["System", "Avatar"], version: "1.0.1" }, 
         ];
 
-        let currentFilter = 'All';
-        let currentSort = 'default';
+        const gamesData = [
+            { 
+                name: "Escape Tsunami for Countries!", 
+                desc: "🏃 Run fast and grab Countries! 🌊 Don't let Tsunami catch you!", 
+                tags: ["Simulator", "Tycoon"], 
+                image: "https://tr.rbxcdn.com/180DAY-921704875c559d700e6195e8f716471a/768/432/Image/Webp/noFilter",
+                link: "https://www.roblox.com/games/116058046909286/Escape-Tsunami-for-Countries" 
+            },
+        ];
+
+        let modalFilter = 'All';
+        let modalSearch = '';
 
         function getCardHTML(asset) {
-            const icon = assetIcons[asset.name] || "fa-box";
-            return `
-                <div class="asset-card bg-cardLight dark:bg-cardDark border border-black/5 dark:border-white/5 rounded-2xl p-6 card-violet-glow group shadow-sm h-full flex flex-col relative overflow-hidden" data-aos="fade-up">
-                    <div class="absolute top-4 right-4 flex gap-1">
-                        ${asset.tags ? asset.tags.map(t => `<span class="text-[9px] font-bold px-2 py-0.5 rounded bg-accent/10 text-accent uppercase tracking-wider">${t}</span>`).join('') : ''}
+            const tagsHTML = asset.tags.map(t => 
+                `<span class="text-[8px] font-black px-2 py-0.5 rounded bg-white/5 text-zinc-400 uppercase tracking-widest">${t}</span>`
+            ).join('');
+
+            return `<div class="asset-card rounded-2xl p-7 group flex flex-col relative overflow-hidden" data-aos="fade-up">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-white border border-white/5 group-hover:bg-white group-hover:text-black transition-all duration-500">
+                        <i class="fa-solid fa-cube text-lg"></i>
                     </div>
-                    <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center text-accent mb-4 group-hover:bg-accent group-hover:text-white transition-all duration-500 group-hover:rotate-[360deg] shrink-0">
-                        <i class="fa-solid ${icon} text-lg"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">${asset.name}</h3>
-                    <p class="text-[10px] font-mono text-accent/60 mb-2 uppercase tracking-widest">v${asset.version}</p>
-                    <p class="text-slate-500 text-xs mb-6 leading-relaxed flex-grow">${asset.desc}</p>
-                    <a href="https://github.com/bonjourdev/website/raw/refs/heads/main/assets/${encodeURIComponent(asset.name)}.rbxm" 
-                       class="mt-auto w-full py-2.5 bg-black/5 dark:bg-white/5 hover:bg-accent hover:text-white text-slate-600 dark:text-slate-300 text-xs font-bold rounded-lg transition-all text-center block">
-                       <i class="fa-solid fa-download mr-2"></i> Download
+                    <div class="flex flex-col items-end gap-1">${tagsHTML}</div>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-1 tracking-tight">${asset.name}</h3>
+                <p class="text-zinc-500 text-xs mb-8 flex-grow">${asset.desc}</p>
+                <div class="mt-auto flex justify-between items-center w-full">
+                    <span class="text-[9px] text-zinc-600 font-mono">v${asset.version}</span>
+                    <a href="#" class="px-4 py-2 bg-white/5 hover:bg-white hover:text-black text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-lg transition-all text-center">Download</a>
+                </div>
+            </div>`;
+        }
+
+        function getGameHTML(game) {
+            return `<div class="asset-card rounded-3xl overflow-hidden group border border-white/5" data-aos="fade-up">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="${game.image}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent"></div>
+                </div>
+                <div class="p-6">
+                    <div class="flex gap-2 mb-4">${game.tags.map(t => `<span class="text-[8px] font-bold px-2 py-1 rounded bg-white/5 text-zinc-500 uppercase">${t}</span>`).join('')}</div>
+                    <h3 class="text-xl font-bold text-white mb-2">${game.name}</h3>
+                    <p class="text-zinc-500 text-sm mb-6">${game.desc}</p>
+                    <a href="${game.link}" target="_blank" class="inline-flex items-center text-xs font-bold text-white group-hover:gap-4 transition-all gap-2">
+                        Play Game <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
-            `;
+            </div>`;
         }
 
-        function renderMainGrid() {
-            const grid = document.getElementById('assets-grid');
-            const mainAssets = assetsData.slice(0, 4);
-            grid.innerHTML = mainAssets.map(asset => getCardHTML(asset)).join('');
+        function renderGames(filter = "All") {
+            const grid = document.getElementById('games-grid');
+            const filtered = filter === "All" ? gamesData : gamesData.filter(g => g.tags.includes(filter));
+            grid.innerHTML = filtered.map(g => getGameHTML(g)).join('');
         }
 
-        //-----------------------------------------------------MODAL LOGIC-----------------------------------------------------\\
-        
+        document.querySelectorAll('.game-filter').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.game-filter').forEach(b => {
+                    b.classList.remove('active', 'bg-white/10', 'text-white');
+                    b.classList.add('text-zinc-500');
+                });
+                const clickedBtn = e.currentTarget;
+                clickedBtn.classList.add('active', 'text-white');
+                clickedBtn.classList.remove('text-zinc-500');
+                renderGames(clickedBtn.getAttribute('data-filter'));
+            });
+        });
+
         function openAssetModal() {
             const modal = document.getElementById('assets-modal');
             const content = document.getElementById('modal-content');
             modal.classList.remove('hidden');
-            void modal.offsetWidth;
-            modal.classList.remove('opacity-0');
-            content.classList.remove('scale-95');
-            content.classList.add('scale-100');
+            setTimeout(() => { modal.classList.remove('opacity-0'); content.classList.remove('scale-95'); content.classList.add('scale-100'); }, 10);
             document.body.style.overflow = 'hidden';
-            renderModalAssets();
-            setTimeout(() => document.getElementById('asset-search').focus(), 100);
+
+            modalSearch = "";
+            document.getElementById('asset-search').value = "";
+            renderModalAssets(); 
         }
 
         function closeAssetModal() {
             const modal = document.getElementById('assets-modal');
             const content = document.getElementById('modal-content');
-            modal.classList.add('opacity-0');
-            content.classList.remove('scale-100');
-            content.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                document.body.style.overflow = '';
-            }, 300);
+            modal.classList.add('opacity-0'); content.classList.add('scale-95');
+            setTimeout(() => { modal.classList.add('hidden'); document.body.style.overflow = ''; }, 300);
         }
 
         function renderModalAssets() {
             const grid = document.getElementById('modal-grid');
-            let assets = [...assetsData];
-            const searchTerm = document.getElementById('asset-search').value.toLowerCase();
+            
+            const filteredData = assetsData.filter(asset => {
+                const matchesTag = modalFilter === "All" || asset.tags.some(t => t.includes(modalFilter));
 
-            if (searchTerm) {
-                assets = assets.filter(a => 
-                    a.name.toLowerCase().includes(searchTerm) || 
-                    a.desc.toLowerCase().includes(searchTerm)
-                );
-            }
+                const term = modalSearch.toLowerCase();
+                const matchesSearch = 
+                    asset.name.toLowerCase().includes(term) || 
+                    asset.desc.toLowerCase().includes(term) || 
+                    asset.version.toLowerCase().includes(term);
 
-            if (currentFilter !== 'All') {
-                assets = assets.filter(a => a.tags && a.tags.includes(currentFilter));
-            }
+                return matchesTag && matchesSearch;
+            });
 
-            currentSort = document.getElementById('sort-select').value;
-            if (currentSort === 'az') {
-                assets.sort((a, b) => a.name.localeCompare(b.name));
-            } else if (currentSort === 'version-old') {
-                assets.reverse();
-            } 
-
-            if(assets.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-20 text-slate-500">No assets found.</div>`;
+            if (filteredData.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center text-zinc-600 py-10">No assets found matching your criteria.</div>`;
             } else {
-                grid.innerHTML = assets.map(asset => getCardHTML(asset)).join('');
+                grid.innerHTML = filteredData.map(a => getCardHTML(a)).join('');
             }
         }
 
-        document.getElementById('asset-search').addEventListener('input', renderModalAssets);
+        document.getElementById('asset-search').addEventListener('input', (e) => {
+            modalSearch = e.target.value;
+            renderModalAssets();
+        });
 
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.filter-btn').forEach(b => {
-                    b.classList.remove('active');
-                    b.classList.remove('bg-accent', 'text-white');
-                    b.classList.add('text-slate-500');
-                });
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active', 'bg-white', 'text-black', 'border-white'));
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.add('text-white', 'border-white/10'));
                 
                 e.target.classList.add('active');
-                e.target.classList.remove('text-slate-500');
                 
-                currentFilter = e.target.getAttribute('data-filter');
+                modalFilter = e.target.getAttribute('data-filter');
                 renderModalAssets();
             });
         });
 
-        //-----------------------------------------------------INIT-----------------------------------------------------\\
-        
         window.addEventListener('DOMContentLoaded', () => {
-            const loader = document.getElementById('loader');
-            const loaderText = document.getElementById('loader-text');
+
+            const shuffledAssets = [...assetsData].sort(() => 0.5 - Math.random());
+            const previewAssets = shuffledAssets.slice(0, 4);
             
-            renderMainGrid();
+            document.getElementById('assets-grid').innerHTML = previewAssets.map(a => getCardHTML(a)).join('');
+            
+            renderGames();
 
-            setTimeout(() => { loaderText.classList.add('reveal-anim'); }, 500);
-
+            setTimeout(() => { document.getElementById('loader-logo').classList.add('reveal-anim'); }, 400);
             setTimeout(() => {
+                const loader = document.getElementById('loader');
                 loader.classList.add('opacity-0');
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                    document.body.classList.remove('loading');
-                    AOS.init({ duration: 800, easing: 'ease-out-back', once: true });
+                setTimeout(() => { 
+                    loader.style.display = 'none'; 
+                    document.body.classList.remove('loading'); 
+                    AOS.init({ duration: 1000, once: true }); 
                 }, 1000);
-            }, 3500);
+            }, 2500);
         });
 
-        const cursorGlow = document.getElementById('cursor-glow');
-        const blobs = [document.getElementById('blob-1'), document.getElementById('blob-2')];
-        const particleContainer = document.getElementById('particles-container');
-        const particles = [];
-
-        for (let i = 0; i < 40; i++) {
-            const p = document.createElement('div');
-            p.className = 'particle animate-twinkle text-slate-400 dark:text-white';
-            const size = Math.random() * 3 + 1;
-            p.style.width = `${size}px`; p.style.height = `${size}px`;
-            let x = Math.random() * window.innerWidth, y = Math.random() * window.innerHeight;
-            p.style.left = `${x}px`; p.style.top = `${y}px`;
-            p.style.animationDelay = `${Math.random() * 5}s`;
-            particleContainer.appendChild(p);
-            particles.push({ el: p, x, y, velX: (Math.random() - 0.5) * 0.5, velY: (Math.random() - 0.5) * 0.5 });
-        }
-
-        function updateParticles() {
-            particles.forEach(p => {
-                p.x += p.velX; p.y += p.velY;
-                if (p.x < 0) p.x = window.innerWidth; if (p.x > window.innerWidth) p.x = 0;
-                if (p.y < 0) p.y = window.innerHeight; if (p.y > window.innerHeight) p.y = 0;
-                p.el.style.left = `${p.x}px`; p.el.style.top = `${p.y}px`;
-            });
-            requestAnimationFrame(updateParticles);
-        }
-        updateParticles();
-
         document.addEventListener('mousemove', (e) => {
-            const { clientX, clientY } = e;
-            cursorGlow.style.left = `${clientX}px`;
-            cursorGlow.style.top = `${clientY}px`;
-            blobs.forEach((blob, index) => {
-                const speed = (index + 1) * 30;
-                blob.style.transform = `translate(${(window.innerWidth / 2 - clientX) / speed}px, ${(window.innerHeight / 2 - clientY) / speed}px)`;
-            });
             const cards = document.querySelectorAll('.asset-card');
             cards.forEach(card => {
                 const rect = card.getBoundingClientRect();
-                const x = clientX - rect.left;
-                const y = clientY - rect.top;
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
                 if (x > 0 && x < rect.width && y > 0 && y < rect.height) {
-                    const rotateX = (y - rect.height/2) / 10;
-                    const rotateY = (rect.width/2 - x) / 10;
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+                    const rx = (y - rect.height/2) / 10;
+                    const ry = (rect.width/2 - x) / 10;
+                    const distance = Math.sqrt(Math.pow(x - rect.width/2, 2) + Math.pow(y - rect.height/2, 2));
+                    const scale = 1 + (1 - Math.min(distance / 200, 1)) * 0.05;
+                    card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(${scale}, ${scale}, ${scale})`;
                 } else {
-                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                    card.style.transform = '';
                 }
             });
         });
     </script>
-</body>
-</html>

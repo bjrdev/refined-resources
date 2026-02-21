@@ -1,6 +1,6 @@
 # Custom Asset & Code License (CACL)
 
-Copyright (c) 2026 Bonjour.
+Copyright (c) 2026 BonjourDev
 
 By downloading, copying, or using the assets and code in this repository, you agree to the following terms and conditions:
 
@@ -11,11 +11,11 @@ By downloading, copying, or using the assets and code in this repository, you ag
 ### 2. RESTRICTIONS (WHAT YOU CANNOT DO)
 * **No Redistribution of Modified Works:** You do not have the right to modify these assets/code and then publish or distribute them as a separate resource or template. 
 * **No Resale:** You are strictly prohibited from selling these assets or code, in their original or modified form, on any platform (Roblox Marketplace, Discord, websites, etc.).
-* **No Unauthorized Publication:** You may not re-upload or publish these assets to any public repository, forum, or marketplace without explicit written permission from the original author (Bonjour.).
+* **No Unauthorized Publication:** You may not re-upload or publish these assets to any public repository, forum, or marketplace without explicit written permission from the original author (BonjourDev).
 
 ### 3. ATTRIBUTION (CREDITS)
-* **Mandatory Credit:** You must provide clear credit to "Bonjour." if you use these resources in your project.
-* **No Removal of Credits:** You may not remove any "Bonjour." branding or credit comments within the script headers.
+* **Mandatory Credit:** You must provide clear credit to "BonjourDev" if you use these resources in your project.
+* **No Removal of Credits:** You may not remove any "BonjourDev" branding or credit comments within the script headers.
 
 ### 4. AUTHORIZATION
 Any redistribution, sharing in other communities, or publication of modified versions of these assets requires prior formal authorization from the author.
